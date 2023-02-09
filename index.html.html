@@ -1,21 +1,12 @@
-
-
-
-
 <html>
   <head>
     <title>Player de TV Online</title>
-
-
-
   </head>
   <body>
- 
-<iframe name=Player "" src="https://sinalpublico.com/player3/ch.php?canal=boborj" frameborder=0 height=400 scrolling=no width=640 allowFullScreen> </iframe>
-		    
+<iframe id="myVideo" " width="90%" height="90%" src="https://sinalpublico.com/player3/ch.php?canal=bandnews" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
+
 <button id="nextButton">Voltar</button>
 <button id="prevButton">Proximo</button>
-
 
 <script>
   var links = [
@@ -23,7 +14,6 @@
     "https://sinalpublico.com/player3/ch.php?canal=espn4",
     "https://sinalpublico.com/player3/ch.php?canal=trutv",
     "https://sinalpublico.com/player3/ch.php?canal=globonews",
-    https://sinalpublico.com/player3/ch.php?canal=boborj                                                         
     "https://sinalpublico.com/player3/ch.php?canal=animalplanet",
     "https://sinalpublico.com/player3/ch.php?canal=discovery",
     "https://sinalpublico.com/player3/ch.php?canal=discoveryhomeihealth",
@@ -99,7 +89,6 @@
     document.getElementById("myVideo").src = links[currentLink];
   });
 </script>
-
 
   </body>
 </html>
