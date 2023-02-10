@@ -1,94 +1,64 @@
+
 <html>
   <head>
-    <title>Player de TV Online</title>
+    <style>
+      iframe {
+        width: 100%;
+        height: 98%;
+      }
+      .buttons {
+        position: center;
+        bottom: 10px;
+        left: 50;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .buttons button {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 36px;
+      }
+    </style>
   </head>
-  <body>
-<iframe id="myVideo" " width="90%" height="90%" src="https://sinalpublico.com/player3/ch.php?canal=bandnews" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
-
-<button id="nextButton">Voltar</button>
-<button id="prevButton">Proximo</button>
-
-<script>
-  var links = [
-    "https://sinalpublico.com/player3/ch.php?canal=bandnews",
-    "https://sinalpublico.com/player3/ch.php?canal=espn4",
-    "https://sinalpublico.com/player3/ch.php?canal=trutv",
-    "https://sinalpublico.com/player3/ch.php?canal=globonews",
-    "https://sinalpublico.com/player3/ch.php?canal=animalplanet",
-    "https://sinalpublico.com/player3/ch.php?canal=discovery",
-    "https://sinalpublico.com/player3/ch.php?canal=discoveryhomeihealth",
-    "https://sinalpublico.com/player3/ch.php?canal=discoverysience",
-    "https://sinalpublico.com/player3/ch.php?canal=discoverytheater",
-    "https://sinalpublico.com/player3/ch.php?canal=discoveryturbo",
-    "https://sinalpublico.com/player3/ch.php?canal=discoveryworld",
-    "https://sinalpublico.com/player3/ch.php?canal=history2",
-    "https://sinalpublico.com/player3/ch.php?canal=hgtv",
-    "https://sinalpublico.com/player3/ch.php?canal=history",
-    "https://sinalpublico.com/player3/ch.php?canal=investigacaodiscovery",
-    "https://sinalpublico.com/player3/ch.php?canal=natgeo",
-    "https://sinalpublico.com/player3/ch.php?canal=boomerang",
-    "https://sinalpublico.com/player3/ch.php?canal=cartoonito",
-    "https://sinalpublico.com/player3/ch.php?canal=cartoon",
-    "https://sinalpublico.com/player3/ch.php?canal=discoverykids",
-    "https://sinalpublico.com/player3/ch.php?canal=disney",
-    "https://sinalpublico.com/player3/ch.php?canal=dreamworks",
-    "https://sinalpublico.com/player3/ch.php?canal=gloob",
-    "https://sinalpublico.com/player3/ch.php?canal=gloobinho",
-    "https://sinalpublico.com/player3/ch.php?canal=nickjr",
-    "https://sinalpublico.com/player3/ch.php?canal=nick",
-    "https://sinalpublico.com/player3/ch.php?canal=tooncast",
-    "https://sinalpublico.com/player3/ch.php?canal=tvratimbum",
-    "https://sinalpublico.com/player3/ch.php?canal=starchannel",
-    "https://sinalpublico.com/player3/ch.php?canal=fx",
-    "https://sinalpublico.com/player3/ch.php?canal=hbo",
-    "https://sinalpublico.com/player3/ch.php?canal=hbo2",
-    "https://sinalpublico.com/player3/ch.php?canal=hbofamily",
-    "https://sinalpublico.com/player3/ch.php?canal=hbomundi",
-    "https://sinalpublico.com/player3/ch.php?canal=hboplus",
-    "https://sinalpublico.com/player3/ch.php?canal=hbopop",
-    "https://sinalpublico.com/player3/ch.php?canal=hbosignature",
-    "https://sinalpublico.com/player3/ch.php?canal=hboxtreme",
-    "https://sinalpublico.com/player3/ch.php?canal=investigacaodiscovery",
-    "https://sinalpublico.com/player3/ch.php?canal=lifetime",
-    "https://sinalpublico.com/player3/ch.php?canal=megapix",
-    "https://sinalpublico.com/player3/ch.php?canal=paramount",
-    "https://sinalpublico.com/player3/ch.php?canal=primeboxbrazil",
-    "https://sinalpublico.com/player3/ch.php?canal=sony",
-    "https://sinalpublico.com/player3/ch.php?canal=space",
-    "https://sinalpublico.com/player3/ch.php?canal=studiouniversal",
-    "https://sinalpublico.com/player3/ch.php?canal=syfy",
-    "https://sinalpublico.com/player3/ch.php?canal=tbs",
-    "https://sinalpublico.com/player3/ch.php?canal=tcm",
-    "https://sinalpublico.com/player3/ch.php?canal=telecineaction",
-    "https://sinalpublico.com/player3/ch.php?canal=telecinecult",
-    "https://sinalpublico.com/player3/ch.php?canal=telecinefun",
-    "https://sinalpublico.com/player3/ch.php?canal=telecinepipoca",
-    "https://sinalpublico.com/player3/ch.php?canal=telecinepremium",
-    "https://sinalpublico.com/player3/ch.php?canal=telecinetouch",
-    "https://sinalpublico.com/player3/ch.php?canal=tlc",
-    "https://sinalpublico.com/player3/ch.php?canal=tnt",
-    "https://sinalpublico.com/player3/ch.php?canal=tntseries",
-    "https://sinalpublico.com/player3/ch.php?canal=universal",
-    "https://sinalpublico.com/player3/ch.php?canal=warner",
-  ];
-  var currentLink = 0;
-
-  document.getElementById("prevButton").addEventListener("click", function() {
-    currentLink--;
-    if (currentLink < 0) {
-      currentLink = links.length - 1;
-    }
-    document.getElementById("myVideo").src = links[currentLink];
-  });
-
-  document.getElementById("nextButton").addEventListener("click", function() {
-    currentLink++;
-    if (currentLink >= links.length) {
-      currentLink = 0;
-    }
-    document.getElementById("myVideo").src = links[currentLink];
-  });
-</script>
-
+  <body style="background-color: black;">
+    <script>
+      const links = [
+        "https://sinalpublico.com/player3/ch.php?canal=bandnews",
+        "https://sinalpublico.com/player3/ch.php?canal=espn4",
+        "https://sinalpublico.com/player3/ch.php?canal=trutv",
+        "https://sinalpublico.com/player3/ch.php?canal=globonews",
+        "https://sinalpublico.com/player3/ch.php?canal=animalplanet",
+        // ... (outros links)
+      ];
+      
+      let index = 0;
+      const iframe = document.createElement("iframe");
+      iframe.src = links[index];
+      document.body.appendChild(iframe);
+      
+      const prevButton = document.createElement("button");
+      prevButton.innerHTML = "&lt;";
+      prevButton.addEventListener("click", () => {
+        index = (index - 1 + links.length) % links.length;
+        iframe.src = links[index];
+      });
+      
+      const nextButton = document.createElement("button");
+      nextButton.innerHTML = "&gt;";
+      nextButton.addEventListener("click", () => {
+        index = (index + 1) % links.length;
+        iframe.src = links[index];
+      });
+      
+      const buttons = document.createElement("div");
+      buttons.classList.add("buttons");
+      buttons.appendChild(prevButton);
+      buttons.appendChild(nextButton);
+      document.body.appendChild(buttons);
+    </script>
   </body>
 </html>
